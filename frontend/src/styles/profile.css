@@ -1,0 +1,260 @@
+/* 프로필 페이지 스타일 */
+.profile-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+  border: 4px solid white;
+  border-radius: 0.5rem;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid white;
+}
+
+.profile-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.profile-info-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+}
+
+.profile-avatar {
+  flex: 0 0 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 2rem;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-details h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.profile-details p {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.friend-actions {
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+/* 탭 스타일 */
+.profile-tabs {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid white;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, border-bottom 0.3s;
+}
+
+.tab-btn.active {
+  opacity: 1;
+  border-bottom: 4px solid white;
+}
+
+.tab-content {
+  width: 100%;
+}
+
+.tab-pane {
+  display: none;
+  width: 100%;
+  padding: 1rem;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* 통계 스타일 */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stats-item {
+  flex: 0 0 calc(50% - 1rem);
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.stats-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.stats-item p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 게임 기록 스타일 */
+.game-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.game-history-table th,
+.game-history-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-history-table th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+.game-history-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.win {
+  color: #4CAF50;
+}
+
+.loss {
+  color: #F44336;
+}
+
+/* 친구 목록 스타일 */
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+
+.friend-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  border: 1px solid white;
+}
+
+.friend-info {
+  flex: 1;
+}
+
+.friend-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.2rem;
+}
+
+.friend-status {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.friend-actions {
+  margin-left: 1rem;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .profile-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-details {
+    text-align: center;
+  }
+  
+  .friend-actions {
+    justify-content: center;
+  }
+  
+  .stats-item {
+    flex: 0 0 100%;
+  }
+  
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}

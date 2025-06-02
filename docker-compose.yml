@@ -1,0 +1,47 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.dockerfile
+    container_name: ft_transcendence_backend
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: sqlite:../database/db.sqlite
+      PORT: 3001
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_CALLBACK_URL: ${GOOGLE_CALLBACK_URL}
+      JWT_SECRET: ${JWT_SECRET}
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.dockerfile
+    container_name: ft_transcendence_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      VITE_API_URL: http://localhost:3001
+    depends_on:
+      - backend
+    restart: unless-stopped
+    
+  database:
+    image: alpine:latest
+    container_name: ft_transcendence_database
+    volumes:
+      - ./database:/data
+    command: sh -c "mkdir -p /data && touch /data/db.sqlite && tail -f /dev/null"
+    restart: unless-stopped
